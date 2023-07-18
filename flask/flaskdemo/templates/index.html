@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library Management System</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Welcome to Library Management System</h1>
+    <ul>
+        <li><a href="{{ url_for('books') }}">Manage Books</a></li>
+        <li><a href="{{ url_for('members') }}">Manage Members</a></li>
+        <li><a href="{{ url_for('transactions') }}">Manage Transactions</a></li>
+    </ul>
+</body>
+</html>

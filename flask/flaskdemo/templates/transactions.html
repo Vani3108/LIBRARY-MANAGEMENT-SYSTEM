@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage Transactions</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Manage Transactions</h1>
+    <form action="{{ url_for('transactions') }}" method="POST">
+        <input type="text" name="book_id" placeholder="Book ID" required>
+        <input type="text" name="member_id" placeholder="Member ID" required>
+        <select name="is_returned">
+            <option value="0">Issue</option>
+            <option value="1">Return</option>
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+    <table>
+        <tr>
+            <th>Transaction ID</th>
+            <th>Book Name</th>
+            <th>Member Name</th>
+            <th>Status</th>
+        </tr>
+        {% for transaction in transactions %}
+        <tr>
+            <td>{{ transaction[0] }}</td>
+            <td>{{ transaction[1] }}</td>
+            <td>{{ transaction[2] }}</td>
+            <td>{{ 'Returned' if transaction[3] else 'Issued' }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

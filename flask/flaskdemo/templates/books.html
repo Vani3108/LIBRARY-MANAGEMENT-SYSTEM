@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage Books</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Manage Books</h1>
+    <form action="{{ url_for('books') }}" method="POST">
+        <input type="text" name="book_name" placeholder="Book Name" required>
+        <input type="text" name="author_name" placeholder="Author Name" required>
+        <input type="number" name="quantity" placeholder="Quantity" required>
+        <button type="submit">Add Book</button>
+    </form>
+    <table>
+        <tr>
+            <th>Book ID</th>
+            <th>Book Name</th>
+            <th>Author Name</th>
+            <th>Quantity</th>
+        </tr>
+        {% for book in books %}
+        <tr>
+            <td>{{ book[0] }}</td>
+            <td>{{ book[1] }}</td>
+            <td>{{ book[2] }}</td>
+            <td>{{ book[3] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

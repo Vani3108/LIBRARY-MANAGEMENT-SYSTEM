@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage Members</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Manage Members</h1>
+    <form action="{{ url_for('members') }}" method="POST">
+        <input type="text" name="member_name" placeholder="Member Name" required>
+        <button type="submit">Add Member</button>
+    </form>
+    <table>
+        <tr>
+            <th>Member ID</th>
+            <th>Member Name</th>
+        </tr>
+        {% for member in members %}
+        <tr>
+            <td>{{ member[0] }}</td>
+            <td>{{ member[1] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
